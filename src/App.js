@@ -2,9 +2,6 @@ import {useRef, useEffect} from 'react';
 import './App.css';
 import { ReactComponent as Scene } from './build.svg';
 import gsap from 'gsap';
-import TextPlugin from "gsap/TextPlugin";
-
-gsap.registerPlugin(TextPlugin);
 
 function App() {
   const wrapper = useRef(null);
@@ -32,8 +29,9 @@ function App() {
     .fromTo(buttons.children, {scale: '1.5'},{duration: 1, scale: 1, autoAlpha: 1, stagger: 0.2})
     .fromTo(icons.children, {scale: '1.5'}, {duration: 0.5, scale: 1, autoAlpha: 1, stagger: 0.2})
     .fromTo(folder, {x: '-=50'}, {duration:1, x: '+=50', autoAlpha: 1})
-    .fromTo([womantop,armandchest,man,postimage], {x: '+=50'}, {duration: 1, x: '-=50', autoAlpha: 1}, '-=1')
-    .fromTo(postimage, {rotate: -15}, {duration: .5, rotate:0 , autoAlpha: 1})
+    .fromTo([womantop,armandchest,man,postimage], {x: '+=30'}, {duration: 1, x: '-=30', autoAlpha: 1}, '-=1')
+    .fromTo([womantop, armandchest], {y: '-=30'}, {duration:1, y: '+=30', autoAlpha:1})
+    .fromTo(postimage, {rotate: 10, transformOrigin: 'right'}, {duration: 1, rotate:0 , autoAlpha: 1},'-=1')
     .fromTo(".text",{scale: 1.5, y: '+=100'},{duration: 1, scale: 1, autoAlpha: 1, y: '-=100'}, '-=2')
   }, []);
 
